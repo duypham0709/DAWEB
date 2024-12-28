@@ -58,19 +58,16 @@ class CartController extends Controller
     {
         $cart = Cart::where('customer_id', Auth::guard('customer')->id())->first();
 
-        // Kiểm tra nếu giỏ hàng không tồn tại
         if (!$cart) {
             return redirect('/carts')->with('error', 'Giỏ hàng không tồn tại');
         }
 
-        $productQty = $request->input('num_product'); // Lấy mảng số lượng sản phẩm
+        $productQty = $request->input('num_product');
 
-        // Kiểm tra nếu không có sản phẩm nào để cập nhật
         if (empty($productQty)) {
             return redirect('/carts')->with('error', 'Không có sản phẩm để cập nhật');
         }
 
-        // Cập nhật số lượng cho từng sản phẩm trong giỏ hàng
         foreach ($productQty as $productId => $quantity) {
             // Kiểm tra nếu số lượng không hợp lệ
             if ($quantity <= 0) {

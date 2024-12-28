@@ -4,7 +4,7 @@
     <div class="bg0 p-tb-200">
         <div class="container">
             <div class="row">
-                <div class="col-lg-10 col-xl-7 m-lr-auto m-b-50">
+                <div class="col-lg-10 col-xl-9 m-lr-auto m-b-50">
                     <div class="m-l-25 m-r--38 m-lr-0-xl">
                         <h3>Thông tin sản phẩm</h3>
                         <table class="table">

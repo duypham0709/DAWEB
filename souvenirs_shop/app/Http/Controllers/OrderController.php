@@ -53,7 +53,6 @@ class OrderController extends Controller
 
     public function checkoutPost(Request $request)
     {
-        // Kiểm tra nếu user đang đăng nhập
         if (Auth::guard('customer')->check()) {
             $customer = Auth::guard('customer')->user();
 
@@ -69,7 +68,6 @@ class OrderController extends Controller
                 "payment.required" => "Chọn phương thức thanh toán.",
             ]);
 
-            // Hiển thị thông tin để kiểm tra
             $data = $request->only('name', 'email', 'phone', 'address', 'payment');
             $data['customer_id'] = $customer->id;
 

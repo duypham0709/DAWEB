@@ -30,7 +30,6 @@ class CartService
             $cart = Cart::create(['customer_id' => $customerId]);
         }
 
-        // Thêm sản phẩm vào giỏ hàng
         $cart->products()->syncWithoutDetaching([$product_id => ['soluong' => $soluong]]);
         
         return true;
@@ -53,7 +52,6 @@ class CartService
     {
         $customerId = Auth::guard('customer')->id(); // Lấy ID khách hàng đang đăng nhập
 
-        // Lấy giỏ hàng của khách hàng
         $cart = Cart::where('customer_id', $customerId)->first();
 
         if ($cart) {
